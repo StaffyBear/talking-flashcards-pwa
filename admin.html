@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcard Admin</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+<header class="app-header">
+  <div>
+    <h1>Admin Panel</h1>
+    <p class="subtitle">Create private flashcards and recordings</p>
+  </div>
+  <nav class="top-nav">
+    <a href="index.html" class="nav-btn">Home</a>
+    <button id="logoutBtn" class="nav-btn hidden" type="button">Logout</button>
+  </nav>
+</header>
+
+<main class="admin-container">
+  <section id="authPanel" class="admin-card">
+    <h2>Log in / Register</h2>
+    <p class="helper-text">You need to log in to create private cards, upload photos, and save recordings.</p>
+    <label for="emailInput">Email</label>
+    <input type="email" id="emailInput" placeholder="you@example.com" autocomplete="email" />
+    <label for="passwordInput">Password</label>
+    <input type="password" id="passwordInput" placeholder="Password" autocomplete="current-password" />
+    <div class="admin-actions">
+      <button id="loginBtn" type="button">Log in</button>
+      <button id="registerBtn" type="button">Register</button>
+    </div>
+    <p id="authMessage" class="admin-message"></p>
+  </section>
+
+  <section id="adminTools" class="hidden">
+    <section class="admin-card">
+      <h2>Add Private Category</h2>
+      <p class="helper-text">Private categories are only visible to your logged-in account.</p>
+      <label for="categoryName">Category name</label>
+      <input type="text" id="categoryName" placeholder="Family, Toys, Routine..." />
+      <button id="addCategoryBtn" type="button">Add Category</button>
+    </section>
+
+    <section class="admin-card">
+      <h2>Add Flashcard</h2>
+      <label for="cardCategory">Category</label>
+      <select id="cardCategory"></select>
+
+      <label for="cardWordInput">Word / Letter / Number</label>
+      <input type="text" id="cardWordInput" placeholder="Example: Apple, A, Dog" />
+
+      <label for="cardPhoto">Photo or image</label>
+      <input type="file" id="cardPhoto" accept="image/*" />
+      <p class="helper-text">This lets you upload from gallery/files. On some phones, the picker also offers camera.</p>
+
+      <div class="record-box">
+        <h3>Custom recording</h3>
+        <p class="helper-text">Optional. If you record your voice, the card plays that instead of computer speech.</p>
+        <div class="admin-actions">
+          <button id="startRecordBtn" type="button">Start Recording</button>
+          <button id="stopRecordBtn" type="button" disabled>Stop Recording</button>
+          <button id="previewRecordBtn" type="button" disabled>Preview Recording</button>
+          <button id="clearRecordBtn" type="button" disabled>Clear Recording</button>
+        </div>
+        <p id="recordStatus" class="admin-message"></p>
+      </div>
+
+      <div class="admin-actions">
+        <button id="previewVoiceBtn" type="button">Preview Computer Voice</button>
+        <button id="addCardBtn" type="button">Save Flashcard</button>
+      </div>
+      <p id="adminMessage" class="admin-message"></p>
+    </section>
+  </section>
+</main>
+
+<script src="admin.js"></script>
+</body>
+</html>

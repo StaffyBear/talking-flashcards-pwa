@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talking Flashcards</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+</head>
+<body>
+<header class="app-header">
+  <div>
+    <h1>Talking Flashcards</h1>
+    <p class="subtitle">Tap a picture to hear the word</p>
+  </div>
+  <nav class="top-nav">
+    <a href="admin.html" class="nav-btn">Admin</a>
+    <button id="logoutBtn" class="nav-btn hidden" type="button">Logout</button>
+  </nav>
+</header>
+
+<main>
+  <section id="loginNotice" class="notice hidden">
+    <p>You are viewing public cards. Log in from the Admin page to create private cards, photos and recordings.</p>
+  </section>
+
+  <section id="homeView">
+    <h2>Choose a category</h2>
+    <div id="categoryGrid" class="category-grid"></div>
+  </section>
+
+  <section id="categoryView" class="hidden">
+    <button id="backBtn" class="back-btn" type="button">← Back</button>
+    <h2 id="categoryTitle"></h2>
+    <p id="emptyMessage" class="empty-message hidden">No flashcards added yet.</p>
+    <div id="cardGrid" class="card-grid"></div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
