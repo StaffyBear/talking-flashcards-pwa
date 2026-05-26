@@ -1,1 +1,52 @@
 body{margin:0;font-family:Arial,sans-serif;background:#f4f7ff;color:#1f2937}.app-header{background:linear-gradient(135deg,#6c63ff,#7dd3fc);color:white;padding:1rem;display:flex;justify-content:space-between}.nav-btn,button{background:#ffb703;border:0;border-radius:16px;padding:.85rem 1rem;font-weight:700}.hidden{display:none!important}.category-grid,.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;padding:1rem}.category-tile,.flashcard-tile,.admin-card{background:white;border-radius:24px;padding:1rem;box-shadow:0 8px 18px #0001}.flashcard-image-wrap{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}.flashcard-image-wrap img{width:100%;height:100%;object-fit:cover}
+
+/* Clean tile update */
+.category-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.category-tile {
+  min-height: 210px;
+  border-radius: 24px;
+  font-size: 1.7rem;
+  justify-content: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.category-name {
+  display: block;
+  line-height: 1.1;
+}
+
+.category-type {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 0.35rem;
+}
+
+.flashcard-tile {
+  justify-content: center;
+  min-height: 230px;
+}
+
+.flashcard-tile strong {
+  display: none;
+}
+
+.flashcard-image-wrap {
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
+
+  .category-tile {
+    min-height: 230px;
+  }
+}

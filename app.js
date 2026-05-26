@@ -50,7 +50,10 @@ async function loadCategories() {
     const tile = document.createElement('button');
     tile.className = cat.is_public ? 'category-tile public-tile' : 'category-tile private-tile';
     tile.type = 'button';
-    tile.innerHTML = `<span>${escapeHtml(cat.name)}</span><small>${cat.is_public ? 'Public' : 'Private'}</small>`;
+    tile.innerHTML = `
+      <span class="category-name">${escapeHtml(cat.name)}</span>
+      <small class="category-type">${cat.is_public ? 'Public' : 'Private'}</small>
+    `;
     tile.onclick = () => openCategory(cat);
     categoryGrid.appendChild(tile);
   });
@@ -106,7 +109,7 @@ async function openCategory(category) {
       ? `<img src="${escapeAttribute(card.image_url)}" alt="${escapeAttribute(card.word)}" />`
       : `<div class="letter-placeholder">${escapeHtml(card.word)}</div>`;
 
-    tile.innerHTML = `<div class="flashcard-image-wrap">${imageHtml}</div><strong>${escapeHtml(card.word)}</strong>`;
+    tile.innerHTML = `<div class="flashcard-image-wrap">${imageHtml}</div>`;
     tile.onclick = () => playCard(card);
     cardGrid.appendChild(tile);
   });
